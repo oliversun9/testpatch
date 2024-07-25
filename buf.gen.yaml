@@ -1,0 +1,16 @@
+version: v2
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      module: buf.build/mfridman/debug-gateway
+      value: buf.build/gen/go/mfridman/debug-gateway/protocolbuffers/go
+plugins:
+  - local: /Users/oliversun/repos/grpc-gateway/main # build it
+    out: "."
+    opt:
+      - paths=source_relative
+      - separate_package=true
+      - standalone=true
+inputs:
+  - module: buf.build/mfridman/debug-gateway
